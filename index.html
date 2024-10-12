@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mouldy+Cheese&display=swap">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- jQuery 추가 -->
     <style>
-         /* 폰트 불러오기 */
+        <style>
+        /* 폰트 불러오기 */
         @font-face {
             font-family: 'Mouldy Cheese';
             src: url('fonts/Mouldy Cheese.ttf') format('truetype'); /* 폰트 파일 경로 */
@@ -43,14 +44,13 @@
             display: flex;
             align-items: center; /* 메뉴 항목과 이퀄라이저 수직 정렬 */
         }
-        
-         nav a {
+
+        nav a {
             color: #ffffff;
             text-decoration: none;
             font-size: 16px;
             font-family: 'Mouldy Cheese', sans-serif; /* Mouldy Cheese 폰트 사용 */
         }
-        
         /* 이퀄라이저 클래스 추가 */
         .equalizer {
             margin-left: 0; /* 이퀄라이저와 버튼의 위치 조정 */
@@ -277,7 +277,7 @@
 
         
         <div class="my-work-container" style="display: none;">  <!-- 처음에는 숨김 -->
-            <div class="my-work-background" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; background-image: url('image/MyWorkBTBACK.jpg"); background-size: cover; background-position: center;"></div>
+            <div class="my-work-background" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; background-image: url('image/My-Work버튼-뒷배경2.jpg"); background-size: cover; background-position: center;"></div>
             <h2 style="text-align: center;"><!-- My Work 제목을 중앙 정렬 -->
             <div class="my-work-item"><img src="image/6.PNG" alt="Portfolio Image 1"></div>
             <div class="my-work-item"><img src="image/6.PNG" alt="Portfolio Image 2"></div>
@@ -313,21 +313,22 @@
     <script src="equalizer.js"></script> <!-- 추가된 JS 파일 -->
 
     <script>
-      const audio = document.getElementById('background-music');
-    const playPauseButton = document.getElementById('play-pause-button');
-
-    // 페이지 로드 시 음악 자동 재생
-    audio.play();
-    playPauseButton.src = 'image/pause_image.jpg'; // 일시정지 이미지로 설정
-
-    // 버튼 클릭 시 재생 및 일시정지 전환
-    playPauseButton.addEventListener('click', function() {
-        if (audio.paused) {
-            audio.play();
-            playPauseButton.src = 'image/pause_image.jpg'; // 일시정지 이미지로 변경
-        } else {
-            audio.pause();
-            playPauseButton.src = 'image/play_image.jpg'; // 재생 이미지로 변경
-        }
-    });
-</script>
+        const audio = document.getElementById('background-music');
+        const playPauseButton = document.getElementById('play-pause-button');
+    
+        // 페이지 로드 시 음악 자동 재생
+        audio.play();
+        playPauseButton.src = 'image/pause_image.jpg'; // 일시정지 이미지로 설정
+    
+        // 버튼 클릭 시 재생 및 일시정지 전환
+        playPauseButton.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                playPauseButton.src = 'image/pause_image.jpg'; // 일시정지 이미지로 변경
+            } else {
+                audio.pause();
+                playPauseButton.src = 'image/play_image.jpg'; // 재생 이미지로 변경
+            }
+        });
+    </script>
+    
