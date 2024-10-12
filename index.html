@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mouldy+Cheese&display=swap">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- jQuery 추가 -->
     <style>
+         /* 폰트 불러오기 */
+        @font-face {
+            font-family: 'Mouldy Cheese';
+            src: url('fonts/Mouldy Cheese.ttf') format('truetype'); /* 폰트 파일 경로 */
+        }
         /* 기본 스타일 */
         body {
             font-family: Arial, sans-serif;
@@ -38,7 +43,14 @@
             display: flex;
             align-items: center; /* 메뉴 항목과 이퀄라이저 수직 정렬 */
         }
-
+        
+         nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Mouldy Cheese', sans-serif; /* Mouldy Cheese 폰트 사용 */
+        }
+        
         /* 이퀄라이저 클래스 추가 */
         .equalizer {
             margin-left: 0; /* 이퀄라이저와 버튼의 위치 조정 */
