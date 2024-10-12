@@ -53,6 +53,17 @@ document.addEventListener('DOMContentLoaded', function() {
         mainImage.style.display = 'none'; // 메인 이미지 숨기기
     });
 
+    // 빈 여백 클릭 시 My Work 숨기고 다시 메인 이미지 보이기
+    myWorkItems.addEventListener('click', function(event) {
+        if (event.target === myWorkItems) { // myWorkItems 자체 클릭 시
+            myWorkItems.style.opacity = 0; // My Work 불투명도 낮추기
+            setTimeout(() => {
+                myWorkItems.style.display = 'none'; // My Work 섹션 숨기기
+                mainImage.style.display = 'block'; // 메인 이미지 다시 보이기
+            }, 300); // 애니메이션이 끝난 후 실행
+        }
+    });
+
     // 배경 이미지 전환 요소
     const backgroundOne = document.getElementById('backgroundOne'); // 첫 번째 배경
     const backgroundTwo = document.getElementById('backgroundTwo'); // 두 번째 배경
