@@ -312,23 +312,22 @@
     <script src="YOON.js"></script> <!-- 추가된 JS 파일 -->
     <script src="equalizer.js"></script> <!-- 추가된 JS 파일 -->
 
-    <script>
-        const audio = document.getElementById('background-music');
-        const playPauseButton = document.getElementById('play-pause-button');
-    
-        // 페이지 로드 시 음악 자동 재생
-        audio.play();
-        playPauseButton.src = 'image/pause_image.jpg'; // 일시정지 이미지로 설정
-    
-        // 버튼 클릭 시 재생 및 일시정지 전환
-        playPauseButton.addEventListener('click', function() {
-            if (audio.paused) {
-                audio.play();
-                playPauseButton.src = 'image/pause_image.jpg'; // 일시정지 이미지로 변경
-            } else {
-                audio.pause();
-                playPauseButton.src = 'image/play_image.jpg'; // 재생 이미지로 변경
-            }
-        });
-    </script>
+   <audio id="background-music" src="music/_Kanye_West_Ty_Dolla_ign_Ft_Chicago_West_North_West_-_BOMB.mp3"></audio>
+<img id="play-pause-button" src="image/play_image.jpg" alt="Play/Pause Button" style="cursor: pointer;">
+
+<script>
+    const audio = document.getElementById('background-music');
+    const playPauseButton = document.getElementById('play-pause-button');
+
+    playPauseButton.addEventListener('click', function() {
+        if (audio.paused) {
+            audio.play();
+            playPauseButton.src = 'image/pause_image.jpg'; // 일시정지 이미지로 변경
+        } else {
+            audio.pause();
+            playPauseButton.src = 'image/play_image.jpg'; // 재생 이미지로 변경
+        }
+    });
+</script>
+
     
