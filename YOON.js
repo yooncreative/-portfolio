@@ -18,28 +18,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleWheelScroll(e) {
-    if (isScrolling) return; // 스크롤 중이면 무시
-
-    e.preventDefault();
-    isScrolling = true;
-
-    if (e.deltaY > 0 && currentSlide < slides.length - 1) {
-        currentSlide++;
-        moveSlide(currentSlide);
-    } else if (e.deltaY < 0 && currentSlide > 0) {
-        currentSlide--;
-        moveSlide(currentSlide);
-    } else if (e.deltaY > 0 && currentSlide === slides.length - 1) {
-        // 마지막 슬라이드에 도달했을 때
-        document.body.style.overflowY = "auto"; // 일반 스크롤 활성화
-        window.removeEventListener('wheel', handleWheelScroll); // 슬라이더 스크롤 이벤트 제거
-        return; // 더 이상 슬라이더 동작을 처리하지 않음
+        if (isScrolling) return; // 스크롤 중이면 무시
+    
+        e.preventDefault();
+        isScrolling = true;
+    
+        if (e.deltaY > 0 && currentSlide < slides.length - 1) {
+            currentSlide++;
+            moveSlide(currentSlide);
+        } else if (e.deltaY < 0 && currentSlide > 0) {
+            currentSlide--;
+            moveSlide(currentSlide);
+        }
+    
+        setTimeout(() => {
+            isScrolling = false;
+        }, 600); // 스크롤 딜레이 적용
     }
-
-    setTimeout(() => {
-        isScrolling = false;
-    }, 600); // 스크롤 딜레이 적용
-}
 
     window.addEventListener('wheel', handleWheelScroll);
     updateDots();
