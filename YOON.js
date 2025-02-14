@@ -4,25 +4,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const dots = document.querySelectorAll('.dot');
     let currentSlide = 0;
     let isScrolling = false; // 스크롤 중복 방지
+    let autoSlideInterval; // 자동 슬라이드를 위한 인터벌 변수
 
+    // 점 업데이트 함수
     function updateDots() {
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === currentSlide);
         });
     }
 
+    // 슬라이드 이동 함수
     function moveSlide(index) {
         const slideWidth = slides[0].clientWidth;
         scrollWrapper.style.transform = `translateX(-${index * slideWidth}px)`;
         updateDots();
     }
 
+    // 자동 슬라이드 함수
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length; // 무한 반복
+            moveSlide(currentSlide);
+        }, 3000); // 3초마다 슬라이드 변경
+    }
+
+    // 점 클릭 시 해당 슬라이드로 이동
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentSlide = index;
+            moveSlide(currentSlide);
+        });
+    });
+
+    // 스크롤 이벤트 핸들러
     function handleWheelScroll(e) {
         if (isScrolling) return; // 스크롤 중이면 무시
-    
+
         e.preventDefault();
         isScrolling = true;
-    
+
         if (e.deltaY > 0 && currentSlide < slides.length - 1) {
             currentSlide++;
             moveSlide(currentSlide);
@@ -30,12 +50,16 @@ document.addEventListener('DOMContentLoaded', function() {
             currentSlide--;
             moveSlide(currentSlide);
         }
-    
+
         setTimeout(() => {
             isScrolling = false;
         }, 600); // 스크롤 딜레이 적용
     }
 
+    // 자동 슬라이드 시작
+    startAutoSlide();
+
+    // 스크롤 이벤트 리스너 추가
     window.addEventListener('wheel', handleWheelScroll);
     updateDots();
 
